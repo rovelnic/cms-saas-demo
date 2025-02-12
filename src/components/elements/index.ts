@@ -8,3 +8,4 @@ export * from "./stats/stats.element";
 export * from "./tile/tile.element";
 export * from "./video/video.element";
 export * from "./list-item/list-item.element";
+export * from "./latestposts/latestposts.block";

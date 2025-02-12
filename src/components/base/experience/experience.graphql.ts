@@ -38,6 +38,7 @@ export const ExperienceQuery = graphql(/* GraphQL */ `
           sections: nodes {
             key
             ...SectionNode
+            ...ElementNode
           }
         }
       }

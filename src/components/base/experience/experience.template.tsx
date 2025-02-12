@@ -1,11 +1,12 @@
 import { useQuery } from "@apollo/client";
-import { CompositionDisplaySetting, SectionNodeFragment } from "@generated/graphql";
+import { CompositionDisplaySetting, ElementNodeFragment, SectionNodeFragment } from "@generated/graphql";
 import { useContentSaved } from "@hooks";
 import { useEffect, useMemo } from "react";
 import { SectionTemplate } from "../section/section.template";
 import { ExperienceQuery } from "./experience.graphql";
 import { GetExperienceStyles } from "./experience.style";
 import { useGlobalContext } from "@context";
+import { ElementTemplate } from "../element/element.template";
 
 interface ExperienceTemplateProps {
   contentGuid?: string | null; // Content GUID
@@ -72,7 +73,16 @@ export const ExperienceTemplate: React.FC<ExperienceTemplateProps> = ({ contentG
 
   return (
     <article className={classes}>
-      {sections.map((section) => section && <SectionTemplate section={section as SectionNodeFragment} key={section.key} />)}
+      {sections.map((section) => {
+        if (section) {
+          if (section.__typename === "CompositionStructureNode") {
+            return <SectionTemplate section={section as SectionNodeFragment} key={section.key} />
+          }
+          else {
+            return <ElementTemplate element={section as ElementNodeFragment} key={section.key} />
+          }
+        }
+      })}
     </article>
   );
 };

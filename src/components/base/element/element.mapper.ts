@@ -9,6 +9,7 @@ import {
   StatsElementComponent,
   TileElementComponent,
   VideoElementComponent,
+  LatestPostsBlockComponent
 } from "@components/elements";
 import { ElementProps } from "@components/elements/element.types";
 
@@ -24,6 +25,7 @@ export class ElementLocator {
     TileElement: TileElementComponent,
     VideoElement: VideoElementComponent,
     ListItemElement: ListItemElementComponent,
+    LatestPostsBlock: LatestPostsBlockComponent
   };
 
   public static get(type?: string | null) {

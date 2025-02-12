@@ -22,6 +22,7 @@ export const ElementFragment = graphql(/* GraphQL */ `
       ...ImageFragment
       ...VideoFragment
       ...ListItemFragment
+      ...LatestPostsFragment
     }
   }
 `);
