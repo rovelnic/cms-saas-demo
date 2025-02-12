@@ -1,0 +1,67 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "paths": {
+      "@generated/graphql": [
+        "./src/generated/graphql/graphql.ts"
+      ],
+      "@generated/graphql/*": [
+        "./src/generated/graphql/*"
+      ],
+      "@helpers": [
+        "./src/helpers"
+      ],
+      "@helpers/*": [
+        "./src/helpers/*"
+      ],
+      "@context": [
+        "./src/context"
+      ],
+      "@context/*": [
+        "./src/context/*"
+      ],
+      "@components": [
+        "./src/components"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@hooks": [
+        "./src/hooks"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@models": [
+        "./src/models"
+      ],
+      "@models/*": [
+        "./src/models/*"
+      ],
+    },
+    "target": "ES2017"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  #__next {
+    @apply flex flex-col flex-1;
+  }
+
+  @import "./generic/colours.css";
+  @import "./generic/typography.css";
+  @import "./generic/generics.css";
+  @import "./overrides/rte.css";
+}
+
+@layer components {
+  @import "./components/button.css";
+  @import "./components/container.css";
+  @import "./components/footer.css";
+  @import "./components/header.css";
+  @import "./components/image.css";
+  @import "./components/loader.css";
+  @import "./components/stats.css";
+  @import "./components/tile.css";
+  @import "./components/quote.css";
+  @import "./components/list-item.css";
+}
