@@ -9,7 +9,7 @@
 
 1. Import the `.episerverdata` file into your `CMS` environment.
 2. Create a new `Application` with the imported page "Home" as startpage.
-3. Add a hostname to the application with `localhost:3000` and locale set to `en`,
+3. Add a hostname to the application with `localhost:3000` and locale set to `en`.
 
 ### Getting started
 
