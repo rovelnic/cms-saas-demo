@@ -5,6 +5,14 @@ export const ImageFragment = graphql(/* GraphQL */ `
     ImageUrl: Image {
       url {
         default
+        graph
+      }
+      item {
+        ... on cmp_PublicImageAsset {
+          Title
+          AltText
+          Url
+        }
       }
     }
     ImageAltText

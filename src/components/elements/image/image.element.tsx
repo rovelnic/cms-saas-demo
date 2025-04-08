@@ -16,16 +16,34 @@ export const ImageElementComponent: React.FC<ImageElementProps> = ({ element, el
     return GetImageStyles(displaySettings);
   }, [displaySettings]);
 
-  const { ImageUrl, ImageAltText } = element;
-  const srcUrl = ImageUrl?.url?.default;
+  const imageData = useMemo(() => {
+    let url = "";
+    let alt = "";
+
+    // Temporary cast as any due to type errors
+    const graphImage: any = element?.ImageUrl?.item;
+    if (graphImage?.Url){
+      url = graphImage.Url;
+      alt = graphImage.AltText;
+    } else {
+      url = element?.ImageUrl?.url?.default ?? "";
+      alt = element?.ImageAltText ?? "";
+    }
+
+    return {
+      url,
+      alt,
+    }
+
+  }, [element]);
 
   return (
     <>
-      {srcUrl && (
+      {imageData.url && (
         <div data-epi-block-id={elementKey} className={classes}>
           <figure>
             <div className="relative">
-              <AutosizedImage src={srcUrl} alt={ImageAltText ?? ""} />
+              <AutosizedImage src={imageData.url} alt={imageData.alt} />
             </div>
           </figure>
         </div>
