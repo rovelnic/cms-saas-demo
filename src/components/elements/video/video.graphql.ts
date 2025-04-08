@@ -6,6 +6,13 @@ export const VideoFragment = graphql(/* GraphQL */ `
       url {
         default
       }
+      item {
+        ... on cmp_PublicVideoAsset {
+          Title
+          AltText
+          Url
+        }
+      }
     }
     VideoAltText
   }
