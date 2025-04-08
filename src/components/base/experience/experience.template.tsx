@@ -23,8 +23,10 @@ export const ExperienceTemplate: React.FC<ExperienceTemplateProps> = ({ contentG
   const { data, refetch, error, loading } = useQuery(ExperienceQuery, {
     variables: queryVariables,
     notifyOnNetworkStatusChange: true,
+    errorPolicy: "ignore",
     onError: (error) => {
-      console.error("[QUERY] Error fetching Experience", error);
+      console.warn("[QUERY] Error fetching Experience", error);
+      setIsLoading(false);
       // refetch(queryVariables);
     },
     onCompleted: (data) => {
@@ -63,9 +65,9 @@ export const ExperienceTemplate: React.FC<ExperienceTemplateProps> = ({ contentG
     return GetExperienceStyles(experience?.composition?.displaySettings as CompositionDisplaySetting[]);
   }, [experience]);
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
+  // if (error) {
+  //   return <div>Error: {error.message}</div>;
+  // }
 
   if (!experience && !loading) {
     return null;
