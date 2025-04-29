@@ -19,20 +19,19 @@ export const VideoElementComponent: React.FC<VideoElementProps> = ({ element, el
     let alt = "";
 
     // Temporary cast as any due to type errors
-    const graphVideo: any = element?.VideoUrl?.item;
-    if (graphVideo?.Url){
-      url = graphVideo.Url;
-      alt = graphVideo.AltText;
-    } else {
-      url = element?.VideoUrl?.url?.default ?? "";
-      alt = element?.VideoAltText ?? "";
-    }
+    // const graphVideo: any = element?.VideoUrl?.item;
+    // if (graphVideo?.Url){
+    //   url = graphVideo.Url;
+    //   alt = graphVideo.AltText;
+    // } else {
+    url = element?.VideoUrl?.url?.default ?? "";
+    alt = element?.VideoAltText ?? "";
+    // }
 
     return {
       url,
       alt,
-    }
-
+    };
   }, [element]);
 
   return (

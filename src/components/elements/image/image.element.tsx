@@ -1,5 +1,4 @@
 import { ImageFragmentFragment } from "@generated/graphql";
-import Image from "next/image";
 import { useMemo } from "react";
 import { ElementProps } from "../element.types";
 import { GetImageStyles } from "./image.style";
@@ -21,20 +20,19 @@ export const ImageElementComponent: React.FC<ImageElementProps> = ({ element, el
     let alt = "";
 
     // Temporary cast as any due to type errors
-    const graphImage: any = element?.ImageUrl?.item;
-    if (graphImage?.Url){
-      url = graphImage.Url;
-      alt = graphImage.AltText;
-    } else {
-      url = element?.ImageUrl?.url?.default ?? "";
-      alt = element?.ImageAltText ?? "";
-    }
+    // const graphImage: any = element?.ImageUrl?.item;
+    // if (graphImage?.Url){
+    //   url = graphImage.Url;
+    //   alt = graphImage.AltText;
+    // } else {
+    url = element?.ImageUrl?.url?.default ?? "";
+    alt = element?.ImageAltText ?? "";
+    // }
 
     return {
       url,
       alt,
-    }
-
+    };
   }, [element]);
 
   return (
